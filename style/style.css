@@ -10,6 +10,11 @@
     box-sizing: border-box;
 }
 
+html {
+    font-size: 93.75%;
+    /* equivale a 15px */
+}
+
 
 /*Titles ================= */
 
@@ -23,6 +28,18 @@ h2 {
 body {
     background: #f0f2f5;
     font-family: 'poppins', sans-serif;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0px;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0px;
 }
 
 .container {
@@ -45,7 +62,7 @@ header {
 }
 
 
-/* balance =============== */
+/* section 1 balance =============== */
 
 #balance {
     margin-top: -8rem;
@@ -54,6 +71,15 @@ header {
 #balance h2 {
     color: white;
     margin-top: 0;
+}
+
+
+/*section 2 transactions ==============*/
+
+#transaction {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
 }
 
 
@@ -69,6 +95,9 @@ header {
 .card h3 {
     font-weight: normal;
     font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .card p {
@@ -80,6 +109,53 @@ header {
 .card.total {
     background: #49AA26;
     color: white;
+}
+
+
+/* Links e buttons ===============*/
+
+a {
+    color: #49AA26;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #3dd705;
+}
+
+button {
+    width: 100%;
+    height: 50px;
+    border: none;
+    background: #49AA26;
+    color: #fff;
+    padding: 0;
+    border-radius: 0.25rem;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #3dd705;
+}
+
+.button.cancel {
+    color: #e92929;
+    border: 2px #e92929 solid;
+    border-radius: 0.25rem;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.6;
+}
+
+.button.cancel:hover {
+    opacity: 1;
+}
+
+.button.new {
+    display: inline-block;
+    margin-bottom: 0.8rem;
 }
 
 
@@ -129,6 +205,72 @@ td.expense {
 }
 
 
+/* modal ==================== */
+
+.modal-overlay {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    top: 0;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.modal {
+    background: #f0f2f5;
+    padding: 2.4rem;
+    position: relative;
+    width: 90%;
+    max-width: 500px;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* formulário ===================*/
+
+#form {
+    max-width: 500px;
+}
+
+#form h2 {
+    margin-top: 0;
+}
+
+#form input {
+    border: none;
+    border-radius: 0.2rem;
+    padding: 0.8rem;
+    width: 100%;
+}
+
+.input-group small {
+    opacity: 0.4;
+}
+
+.input-group.actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.input-group {
+    margin-top: 0.3rem;
+}
+
+.input-group.actions .button,
+.input-group.actions button {
+    width: 48%;
+}
+
+
 /* footer =============== */
 
 footer {
@@ -136,4 +278,18 @@ footer {
     padding: 4rem 0 2rem;
     color: var(--dark-blue);
     opacity: 0.6;
+}
+
+
+/* responsive ==============*/
+
+@media (min-width: 800px) {
+    html {
+        font-size: 87.5%;
+    }
+    #balance {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
 }
